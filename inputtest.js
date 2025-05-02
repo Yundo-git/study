@@ -1,6 +1,6 @@
 const emailForm = document.getElementById("email"); // form
 const emailInput = document.getElementById("user-email"); // input type=email
-const passwordInput = document.getElementById("user-password"); // input type=password
+// const passwordInput = document.getElementById("user-password"); // input type=password
 
 emailForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -9,4 +9,15 @@ emailForm.addEventListener("submit", (e) => {
   //   const passwordValue = passwordInput.value;
 
   console.log("입력값 >>", emailValue);
+
+  inputvalue(emailValue);
 });
+
+function inputvalue(value) {
+  const inputv = document.createElement("p");
+  inputv.textContent = value;
+
+  emailForm.append(inputv); //email form태그다음에 넣어라
+
+  //   emailForm.parentNode.insertBefore(inputv, emailForm.nextSibling); 형제요소 선택자
+}
