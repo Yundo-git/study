@@ -1,42 +1,29 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 사용자 정의 CSS 변수 */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #463ea3;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 사용자 정의 유틸리티 */
+@layer utilities {
+  .text-header {
+    @apply text-black font-bold text-2xl;
   }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  .text-title {
+    @apply text-4xl font-bold;
+  }
+  .text-primary {
+    color: var(--primary-color); /* 사용자 정의 색상 */
+  }
+  .text-medium {
+    @apply text-xl;
+  }
+  .bg-primary {
+    background-color: var(--primary-color);
   }
 }
