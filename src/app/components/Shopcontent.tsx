@@ -30,10 +30,19 @@ export const Shopcontent = () => {
       setLoading(false);
     }
   };
-
+  //Api호출 반복되는거 막기
   useEffect(() => {
     fetchStores();
   }, []);
+
+  //모달이 열렸을때 바깥 페이지 스크롤 막기
+  useEffect(() => {
+    if (popupState) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [popupState]);
 
   //팝업 상태관리
   const imgClick = (store: Store) => {
@@ -53,7 +62,7 @@ export const Shopcontent = () => {
           Loading...
         </div>
       )}
-      <section className="m-25">
+      <section className="m-25 ">
         <h2 className="text-title">EAT</h2>
         <div className="grid grid-cols-2 mt-6 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {stores.map((store) => (
@@ -67,6 +76,7 @@ export const Shopcontent = () => {
           ))}
         </div>
       </section>
+      {/* 팝업영역 */}
       {popupState && selectStore && (
         <ShopModal
           popupState={popupState}

@@ -22,13 +22,26 @@ export const ShopModal: React.FC<ShopsProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/50  flex items-center justify-center w-full">
-      <div className="bg-white rounded-lg h-[95vh] relative flex w-[90vw]">
-        <button
-          className="absolute w-[3.5rem] text-[2rem] h-[3.5rem] top-4 right-4 text-gray-600 cursor-pointer"
-          onClick={closePopup}
+      <div className="bg-white rounded-lg h-[98vh] relative flex w-[95vw]">
+        {/* x버튼영역 */}
+        <div
+          className=" w-[3.5rem] text-[2rem] h-[3.5rem] 
+        hover:bg-black group 
+        rounded-sm cursor-pointer 
+        absolute top-4 right-4 flex items-center justify-center "
         >
-          X
-        </button>
+          <img
+            onClick={closePopup}
+            src="icons/x-24.svg"
+            className="group-hover:hidden"
+          />
+          <img
+            onClick={closePopup}
+            src="icons/x-white-24.svg"
+            className="hidden group-hover:block"
+          />
+        </div>
+        {/* 스토어 이미지 영역*/}
         <div className="w-1/2">
           <img
             className=" w-full object-cover h-full rounded"
@@ -36,10 +49,11 @@ export const ShopModal: React.FC<ShopsProps> = ({
             alt={selectStore.name}
           />
         </div>
+        {/* 스토어 설명 영역 */}
         <div className="w-1/2 flex-col flex p-20 justify-between">
           <h3 className="text-title font-bold mb-2">{selectStore.name}</h3>
-          <div>
-            <p className=" overflow-y-auto h-auto">
+          <div className="h-full flex justify-between flex-col">
+            <p className="h-auto text-sm">
               {selectStore.description
                 .split(/\n|\u2028|\. /) // \n 또는 \u2028 (줄바꿈) 또는 . 으로 분리
                 .map((sentence, index) => (
@@ -50,15 +64,8 @@ export const ShopModal: React.FC<ShopsProps> = ({
                   </span>
                 ))}
             </p>
-            {selectStore.url && (
-              <a
-                href={selectStore.url}
-                target="_blank"
-                className="text-blue-500 underline mt-20 block"
-              >
-                Visit Website
-              </a>
-            )}
+            {/* url이 있다면 표시 */}
+            {selectStore.url && <a href={selectStore.url}>Visit Website</a>}
           </div>
         </div>
       </div>
