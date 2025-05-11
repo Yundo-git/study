@@ -7,23 +7,48 @@
 /* 사용자 정의 CSS 변수 */
 :root {
   --primary-color: #463ea3;
+  --primary-color-dark: #9c88ff;
+}
+.dark {
+  --text-color: #ffffff;
+  --bg-color: #000000;
 }
 
 /* 사용자 정의 유틸리티 */
 @layer utilities {
   .text-header {
-    @apply text-black font-bold text-2xl;
+    @apply font-bold text-2xl;
   }
   .text-title {
     @apply text-4xl font-bold;
   }
   .text-primary {
-    color: var(--primary-color); /* 사용자 정의 색상 */
+    color: var(--primary-color); /* 텍스트 매인 컬러 설정 */
+  }
+  .dark .text-primary {
+    color: var(--primary-color-dark); /* 텍스트를 Dark 모드에서 메인 컬러 */
   }
   .text-medium {
     @apply text-xl;
   }
   .bg-primary {
     background-color: var(--primary-color);
+  }
+  .dark .bg-primary {
+    background-color: var(
+      --primary-color-dark
+    ); /* 배경색 Dark 모드에서 메인컬러 설정 */
+  }
+
+  .bg-modal {
+    background-color: #ffffff;
+  }
+
+  .dark .bg-modal {
+    background-color: var(--bg-color);
+  }
+  body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
   }
 }
