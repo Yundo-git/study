@@ -51,4 +51,34 @@
     color: var(--text-color);
     background-color: var(--bg-color);
   }
+
+  /*텍스트 반응형 설정*/
+  .responsive-text {
+    font-size: 1rem; /* 기본 크기 */
+  }
+  @screen sm {
+    .responsive-text {
+      font-size: 1.125rem; /* sm (640px 이상) */
+    }
+  }
+  @screen md {
+    .responsive-text {
+      font-size: 1.25rem; /* md (768px 이상) */
+    }
+  }
+  @screen lg {
+    .responsive-text {
+      font-size: 1.5rem; /* lg (1024px 이상) */
+    }
+  }
+  @screen xl {
+    .responsive-text {
+      font-size: 1.875rem; /* xl (1280px 이상) */
+    }
+  }
+  @screen 2xl {
+    .responsive-text {
+      font-size: 2.25rem; /* 2xl (1536px 이상) */
+    }
+  }
 }

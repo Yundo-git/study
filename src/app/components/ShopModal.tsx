@@ -24,7 +24,7 @@ export const ShopModal: React.FC<ShopsProps> = ({
   const { theme } = useTheme();
 
   return (
-    <div className="fixed inset-0 bg-black/50  flex items-center justify-center w-full">
+    <div className="fixed rounded inset-0 bg-black/50  flex items-center justify-center w-full">
       <div className="bg-white rounded-lg h-[98vh] relative flex w-[95vw]">
         {/* x버튼영역 */}
         <div
@@ -57,15 +57,15 @@ export const ShopModal: React.FC<ShopsProps> = ({
           )}
         </div>
         {/* 스토어 이미지 영역*/}
-        <div className="w-1/2">
+        <div className="w-1/2 ">
           <img
-            className=" w-full object-cover h-full rounded"
+            className=" w-full object-cover h-full rounded-l"
             src={selectStore.image}
             alt={selectStore.name}
           />
         </div>
         {/* 스토어 설명 영역 */}
-        <div className="w-1/2 bg-modal flex-col flex p-20 justify-between">
+        <div className="w-1/2 bg-modal flex-col rounded-r flex p-20 justify-between">
           <h3 className="text-title font-bold mb-2">{selectStore.name}</h3>
           <div className="h-full flex justify-between flex-col">
             <p className="h-auto text-sm ">

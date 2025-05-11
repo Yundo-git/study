@@ -78,11 +78,13 @@ export const Shopcontent = () => {
       </section>
       {/* 팝업영역 */}
       {popupState && selectStore && (
-        <ShopModal
-          popupState={popupState}
-          selectStore={selectStore}
-          closePopup={closePopup}
-        />
+        <div>
+          <ShopModal
+            popupState={popupState}
+            selectStore={selectStore}
+            closePopup={closePopup}
+          />
+        </div>
       )}
     </>
   );
