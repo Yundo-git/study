@@ -2,7 +2,8 @@
 
 import { useState, useEffect, ChangeEvent } from "react";
 import Link from "next/link";
-import { useTheme } from "../providers/ThemeProvider";
+import { useTheme } from "../../providers/ThemeProvider";
+import { MobileSidebar } from "./MobileSidebar";
 
 function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -29,40 +30,17 @@ function Header() {
         clientTheme === "dark" ? "bg-black text-white" : "bg-white text-black"
       } max-lg:p-2`}
     >
-      {/* 모바일 사이드바 버튼 */}
-      {/* <button className="lg:hidden p-2" onClick={toggleSidebar}>
-        ☰
-      </button> */}
       <div className="lg:hidden p-2" onClick={toggleSidebar}>
-        <img src="/icons/menu-24.svg" />
+        {theme === "dark" ? (
+          <img src="icons/menu-white-24.svg" />
+        ) : (
+          <img src="icons/menu-24.svg" />
+        )}
       </div>
 
       {/* 사이드바 (모바일) */}
-      <div
-        className={`fixed inset-y-0 left-0 bg-primary text-white w-full transform transition-transform ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:hidden`}
-      >
-        <button className="absolute top-4 right-4" onClick={toggleSidebar}>
-          X
-        </button>
-
-        <div className="p-6 flex flex-col gap-4">
-          <select
-            value={clientTheme}
-            onChange={handleSelect}
-            className="bg-white p-2 text-black"
-          >
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-          </select>
-          <Link href="/" onClick={toggleSidebar} className="text-header ">
-            ABOUT
-          </Link>
-          <Link href="/shop" onClick={toggleSidebar} className="text-header">
-            SHOP
-          </Link>
-        </div>
+      <div className="lg:hidden">
+        <MobileSidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       </div>
 
       {/* 드롭다운 영역 (PC) */}
@@ -79,16 +57,16 @@ function Header() {
 
       {/* 카테고리 영역 (PC) */}
       <div className="flex gap-24 hidden lg:flex">
-        <Link href="/" className="text-header responsive-text">
+        <Link href="/" className="text-header">
           ABOUT
         </Link>
-        <Link href="/shop" className="text-header responsive-text">
+        <Link href="/shop" className="text-header">
           SHOP
         </Link>
       </div>
 
       {/* 로고 이미지 영역 */}
-      <Link href="/" className="text-primary text-title responsive-text">
+      <Link href="/" className="text-primary text-header ">
         AWESOME
         <br />
         FOOD-STORE

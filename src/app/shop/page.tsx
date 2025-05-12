@@ -1,9 +1,9 @@
-import { Shopcontent } from "../components/Shopcontent";
+import { Shopcontent } from "../components/shop/Shopcontent";
 import { Title } from "../components/Title";
 
 export default function ShopPage() {
   return (
-    <div className="p-6 ">
+    <div>
       <Title pageName="SHOP" />
       <Shopcontent />
     </div>

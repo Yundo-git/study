@@ -48,7 +48,7 @@ export const Shopcontent = () => {
   const imgClick = (store: Store) => {
     setPopupState(true);
     setSeletStore(store);
-    console.log("사진클릭됨!", store);
+    // console.log("사진클릭됨!", store);
   };
   const closePopup = () => {
     setPopupState(false);
@@ -62,7 +62,7 @@ export const Shopcontent = () => {
           Loading...
         </div>
       )}
-      <section className="m-25 ">
+      <section className="m-25 max-lg:m-4">
         <h2 className="text-title">EAT</h2>
         <div className="grid grid-cols-2 mt-6 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {stores.map((store) => (

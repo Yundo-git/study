@@ -9,35 +9,59 @@
   --primary-color: #463ea3;
   --primary-color-dark: #9c88ff;
 }
+
 .dark {
   --text-color: #ffffff;
   --bg-color: #000000;
 }
 
 /* 사용자 정의 유틸리티 */
-@layer utilities {
-  .text-header {
-    @apply font-bold text-2xl;
-  }
+@layer base {
   .text-title {
-    @apply text-4xl font-bold;
+    font-size: 1.25rem; /* 기본 (모바일) */
+    font-weight: 600;
+    line-height: 1.2;
+
+    @media (min-width: 640px) {
+      font-size: 1.5rem; /* 작은 화면 (640px 이상) */
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1.75rem; /* 태블릿 (768px 이상) */
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 2rem; /* 데스크탑 (1024px 이상) */
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 2.25rem; /* 큰 화면 (1280px 이상) */
+    }
   }
-  .text-primary {
-    color: var(--primary-color); /* 텍스트 매인 컬러 설정 */
+
+  .text-header {
+    @apply font-bold text-xl;
   }
-  .dark .text-primary {
-    color: var(--primary-color-dark); /* 텍스트를 Dark 모드에서 메인 컬러 */
-  }
+
   .text-medium {
-    @apply text-xl;
+    font-size: 0.875rem; /* 기본 (모바일) */
+    line-height: 1.4;
   }
+
+  .text-primary {
+    color: var(--primary-color);
+  }
+
+  .dark .text-primary {
+    color: var(--primary-color-dark);
+  }
+
   .bg-primary {
     background-color: var(--primary-color);
   }
+
   .dark .bg-primary {
-    background-color: var(
-      --primary-color-dark
-    ); /* 배경색 Dark 모드에서 메인컬러 설정 */
+    background-color: var(--primary-color-dark);
   }
 
   .bg-modal {
@@ -47,38 +71,9 @@
   .dark .bg-modal {
     background-color: var(--bg-color);
   }
+
   body {
     color: var(--text-color);
     background-color: var(--bg-color);
-  }
-
-  /*텍스트 반응형 설정*/
-  .responsive-text {
-    font-size: 1rem; /* 기본 크기 */
-  }
-  @screen sm {
-    .responsive-text {
-      font-size: 1.125rem; /* sm (640px 이상) */
-    }
-  }
-  @screen md {
-    .responsive-text {
-      font-size: 1.25rem; /* md (768px 이상) */
-    }
-  }
-  @screen lg {
-    .responsive-text {
-      font-size: 1.5rem; /* lg (1024px 이상) */
-    }
-  }
-  @screen xl {
-    .responsive-text {
-      font-size: 1.875rem; /* xl (1280px 이상) */
-    }
-  }
-  @screen 2xl {
-    .responsive-text {
-      font-size: 2.25rem; /* 2xl (1536px 이상) */
-    }
   }
 }

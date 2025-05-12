@@ -2,9 +2,9 @@ import React from "react";
 
 export const Aboutcontent = () => {
   return (
-    <section className="mt-25">
-      <div className="w-100% mx-25 flex gap-10 h-[50vh]">
-        <div className="flex flex-col gap-8 w-1/2">
+    <section className="flex flex-col  gap-10 mt-25 max-lg:mt-4  flex-grow min-h-[300px]">
+      <div className="mx-25 max-lg:mx-4 max-lg:flex-col flex max-lg:gap-4 gap-8">
+        <div className=" flex flex-col gap-8 w-1/2 max-lg:w-full ">
           <h2 className="text-primary text-title">
             AWESOME
             <br />
@@ -22,11 +22,11 @@ export const Aboutcontent = () => {
             설계되었습니다.
           </p>
         </div>
-        <div className="w-1/2 flex items-center justify-center overflow-hidden">
+        <div className="w-full md:w-1/2">
           <img
             src="https://www.common-ground.co.kr/images/select/select-img.jpg"
             alt="test"
-            className="w-full h-full object-cover rounded-lg shadow-lg"
+            className="w-full h-full object-cover rounded-lg shadow-lg "
           />
         </div>
       </div>
