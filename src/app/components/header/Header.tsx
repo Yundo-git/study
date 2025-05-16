@@ -4,6 +4,7 @@ import { useState, useEffect, ChangeEvent } from "react";
 import Link from "next/link";
 import { useTheme } from "../../providers/ThemeProvider";
 import { MobileSidebar } from "./MobileSidebar";
+import { DropDown } from "./DropDown";
 
 function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -42,19 +43,10 @@ function Header() {
       <div className="lg:hidden">
         <MobileSidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       </div>
-
       {/* 드롭다운 영역 (PC) */}
-      <div className="relative hidden lg:block">
-        <select
-          value={clientTheme}
-          onChange={handleSelect}
-          className="p-2 text-medium responsive-text"
-        >
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-        </select>
+      <div>
+        <DropDown clientTheme={clientTheme} handleSelect={handleSelect} />
       </div>
-
       {/* 카테고리 영역 (PC) */}
       <div className="flex gap-24 hidden lg:flex">
         <Link href="/" className="text-header">

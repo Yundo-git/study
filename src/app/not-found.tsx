@@ -25,8 +25,8 @@ export default function NotFound() {
   if (countdown === null) {
     // 타이머가 초기화되지 않은 상태에서 로딩 표시하기
     return (
-      <div className="flex flex-col items-center justify-center h-screen text-center">
-        <h1 className="text-4xl font-bold mb-4">
+      <div className="flex flex-col items-center justify-center h-screen text-center ">
+        <h1 className="text-4xl font-bold mb-4 max-lg:mx-4 max-lg:text-xl">
           404 - 페이지를 찾을 수 없습니다.
         </h1>
         <p className="text-gray-600 mb-4">로딩 중...</p>
@@ -36,7 +36,7 @@ export default function NotFound() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen text-center">
-      <h1 className="text-4xl font-bold mb-4">
+      <h1 className="text-4xl font-bold mb-4 max-lg:mx-4 max-lg:text-2xl">
         404 - 페이지를 찾을 수 없습니다.
       </h1>
       <p className="text-gray-600 mb-4">
